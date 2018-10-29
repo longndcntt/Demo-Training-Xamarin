@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoTraining.Views.MainPage"
+             Title="{Binding Title}">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Grid Margin="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.Column="0" Grid.Row="0" Source="class123.jpg"></Image>
+            <Image Grid.Column="1" Grid.Row="0" Source="student.png"></Image>
+            <Button Grid.Column="0" Grid.Row="1" 
+                    Text="Add Class"
+                    HorizontalOptions="FillAndExpand" 
+                    Command="{Binding AddClassPageCommand}"></Button>
+            <Button Grid.Column="1" Grid.Row="1"
+                    Text="Add Student"
+                    HorizontalOptions="FillAndExpand" 
+                    Command="{Binding AddStudentPageCommand}"></Button>
+
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,14 @@
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\bin\Debug\netstandard2.0\DemoTraining.deps.json
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\bin\Debug\netstandard2.0\DemoTraining.dll
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\obj\Debug\netstandard2.0\DemoTraining.csproj.CoreCompileInputs.cache
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\obj\Debug\netstandard2.0\DemoTraining.AssemblyInfoInputs.cache
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\obj\Debug\netstandard2.0\DemoTraining.AssemblyInfo.cs
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\obj\Debug\netstandard2.0\Views\AddClassPage.xaml.g.cs
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\obj\Debug\netstandard2.0\Views\AddStudentPage.xaml.g.cs
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\obj\Debug\netstandard2.0\DemoTraining.dll
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\obj\Debug\netstandard2.0\DemoTraining.pdb
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\bin\Debug\netstandard2.0\DemoTraining.pdb
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\obj\Debug\netstandard2.0\DemoTraining.csprojAssemblyReference.cache
+D:\Xamarin\DemoTraining\DemoTraining\DemoTraining\obj\Debug\netstandard2.0\XamlC.stamp

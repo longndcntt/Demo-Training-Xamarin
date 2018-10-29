@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             x:Class="DemoTraining.Views.AddStudentPage"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="Font" Value="16"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+        <ScrollView>
+            <StackLayout >
+                <Grid Margin="50,0,50,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"></RowDefinition>
+                        <RowDefinition Height="60"></RowDefinition>
+                        <RowDefinition Height="60"></RowDefinition>
+                        <RowDefinition Height="60"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.ColumnSpan="2" 
+                           HorizontalOptions="Center"
+                       Font="30" TextColor="Blue"
+                       Text="Student Details"></Label>
+                    <Label Grid.Row="1" Grid.Column="0" 
+                       Text="Name:"></Label>
+                    <Label Grid.Row="2" Grid.Column="0"  
+                       Text="Date Of Birth:"></Label>
+                    <Label Grid.Row="3" Grid.Column="0" 
+                       Text="Class Id:"></Label>
+                    <Entry Grid.Row="1" Grid.Column="1"
+                       Text="{Binding DisplayName, Mode=TwoWay}" 
+                       HorizontalOptions="Fill"></Entry>
+                    <DatePicker Grid.Row="2" Grid.Column="1"
+                                Date="{Binding DateOfBirth,TargetNullValue={x:Static system:DateTime.Now}, Mode=TwoWay}"
+                                MinimumDate="01/01/1920"
+                                Format="dd-MM-yyyy"
+                            HorizontalOptions="Fill"
+                            ></DatePicker>
+                    <Picker Grid.Row="3" Grid.Column="1"
+                            ItemsSource="{Binding ListClass,Mode=TwoWay}"
+                            ItemDisplayBinding="{Binding DisplayName}"
+                            SelectedItem="{Binding SelectedClass,Mode=TwoWay}"
+                            HorizontalOptions="Fill">
+                        <Picker.Behaviors>
+                            <behaviors:EventToCommandBehavior EventName="SelectedIndexChanged" 
+                                                              Command="{Binding ChangeSelectedClassCommand}"
+                                                              ></behaviors:EventToCommandBehavior>
+                            </Picker.Behaviors>
+                    </Picker>
+
+                </Grid>
+                <StackLayout Margin="50,0,50,10"
+                             Orientation="Horizontal" 
+                             HorizontalOptions="EndAndExpand">
+                    <Button Grid.Column="0" 
+                            Text="Add Student" 
+                            Command="{Binding AddStudentCommand}" 
+                            HorizontalOptions="End"></Button>
+                    <Button Grid.Column="0" 
+                            Text="Edit Student" 
+                            Command="{Binding EditStudentCommand}" 
+                            HorizontalOptions="End"></Button>
+                </StackLayout>
+
+
+                <Label Text="Student List" Font="32" TextColor="Blue" HorizontalOptions="Center" />
+
+
+                <Grid Margin="50,0,50,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="30*" />
+                        <ColumnDefinition Width="30*" />
+                        <ColumnDefinition Width="30*" />
+                    </Grid.ColumnDefinitions>
+                    <Label  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Choose class: "
+                            HorizontalOptions="End"/>
+                    <Picker ItemsSource="{Binding ListClass, Mode=TwoWay}"
+                            SelectedItem="{Binding SelectedClassShow}"
+                            ItemDisplayBinding="{Binding DisplayName}"
+                            Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2"
+                            HorizontalOptions="Fill"
+                            >
+                        <Picker.Behaviors>
+                            <behaviors:EventToCommandBehavior EventName="SelectedIndexChanged" 
+                                                              Command="{Binding ChangeSelectedClassShowCommand}"
+                                                              ></behaviors:EventToCommandBehavior>
+                            
+                        </Picker.Behaviors>
+                    </Picker>
+                    <Label  Grid.Column="0" Grid.Row="1" Text="Id"/>
+                    <Label  Grid.Column="1" Grid.Row="1" Text="Name"/>
+                    <Label Grid.Column="2" Grid.Row="1" Text="Date of birth"/>
+                    <Label Grid.Column="3" Grid.Row="1" Text="Class"/>
+
+                </Grid>
+                <ListView SelectedItem="{Binding SelectedStudent}"
+                          ItemsSource="{Binding ListStudent}" 
+                          HasUnevenRows="True">
+                     
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid  Margin="50,0,50,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10*" />
+                                        <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="30*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label  Grid.Column="0" Text="{Binding Id}"/>
+                                    <Label  Grid.Column="1" Text="{Binding DisplayName}"/>
+                                    <Label  Grid.Column="2" Text="{Binding DateOfBirth}"/>
+                                    <Label Grid.Column="3" Text="{Binding IdClass}"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                        
+                    </ListView.ItemTemplate>
+                    <ListView.Behaviors>
+                        <behaviors:EventToCommandBehavior EventName="ItemSelected" 
+                                                          Command="{Binding ChangeItemSelectedListViewCommand}"></behaviors:EventToCommandBehavior>
+                        
+                    </ListView.Behaviors>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>
